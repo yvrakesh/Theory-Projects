@@ -13,7 +13,6 @@ body{
     overflow: hidden;
     background-color : rgb(13,4,226);
 }
-
 .prev{
     display: block;
     color: white;
@@ -76,15 +75,7 @@ body{
     text-decoration: none;
     float : right;
 }
-.head1{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    float : left;
-}
-.head:hover, .head1:hover {
+.head:hover{
   background-color: black;
 }
 footer {
@@ -96,3 +87,8 @@ footer {
     color : white;
     text-align: center;
 }
+@media (min-width:992px){
+    .left {
+      float : left;
+    }
+  }
