@@ -1,10 +1,13 @@
-body{
-  background-color : black;
-  margin : 0;
+body,html{
+  height: 100%;
+  margin: 0;
+}
+.bg {
   background-image: url("water3.jpg");
+  height: 100%;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size : cover;
-  height : 100%
+  background-size: cover;
 }
 h1{
   background-color: white;
@@ -12,9 +15,13 @@ h1{
 .grey-bar{
   list-style-type: none;
   margin: 0;
+  left : 0;
+  top : 0;
+  width : 100%;
   padding: 0;
   overflow: hidden;
   background-color : #333;
+  position : fixed;
 }
 .head{
   display: block;
@@ -28,7 +35,7 @@ h1{
 background-color: black;
 }
 footer {
-  position: fixed;
+  position:fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -39,5 +46,20 @@ footer {
 @media (min-width:992px){
   .left {
     float : left;
+  }
+  body{
+    background-image: url("water3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height : 100%;
+  }
+}
+@media (max-width : 992px){
+  .bg {
+    background-image: url("water3.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

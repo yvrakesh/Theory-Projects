@@ -109,4 +109,7 @@ footer {
         overflow: hidden;
         background-color : rgb(13,4,226);
     }
+    .student_bar{
+        margin-left : 25%;
+    }
 } 
