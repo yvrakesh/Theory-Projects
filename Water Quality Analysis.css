@@ -2,32 +2,10 @@ body{
     background-color : black;
     margin : 0;
     background-image: url("water3.jpg");
-    /* -webkit-backface-visibility: hidden; */
-    /* -webkit-animation: myapp 15s infinite 0s ; */
-    /* animation: myapp 15s linear infinite 0s; */
-    /* -webkit-animation-timing-function: ease-in-out; */
     background-repeat: no-repeat;
-    /* animation-direction : alternate; */
     background-size : cover;
     height : 100%
 }
-/*@-webkit-keyframes myapp{
-    0%{
-        background-image:url("water3.jpg");
-    }
-    25%{
-        background-image: url("water2.jpg"),url("water4.jpg");
-    }
-    50%{
-        background-image : url("water4.jpg"),url("water5.jpg");
-    }
-    75%{
-        background-image: url("water5.jpg"),url("water1.jpg");
-    }
-    100%{
-        background-image : url("water1.jpg"),url("water2.jpg");
-    }
-}*/
 h1{
     background-color: white;
 }
@@ -46,7 +24,15 @@ h1{
     text-decoration: none;
     float : right;
 }
-.head:hover {
+.head1{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float : left;
+}
+.head:hover,.head1:hover {
   background-color: black;
 }
 footer {
@@ -57,7 +43,4 @@ footer {
     background-color : #333;
     color : white;
     text-align: center;
-    }
-.left{
-    float: left;
 }
