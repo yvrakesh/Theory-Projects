@@ -165,3 +165,13 @@ footer {
     margin-left : 600px;
     margin-bottom : 100px;
 }
+@media (min-width:992px){
+    .left {
+      float : left;
+    }
+}
+@media(max-width : 992px){
+    .center{
+        font-size: small;
+    }
+}
