@@ -52,32 +52,7 @@ th{
     position : relative;
     list-style-type: none;
     top : 45px;
-}
-.wrapper .sidebar{
-    width: 200px;
-    height: 100%;
-    background: #4b4276;
-    padding: 30px 0px;
-    position: fixed;
-    overflow : scroll;
-}
-
-.wrapper .sidebar h3{
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top : 0px;
-}
-
-.wrapper .sidebar  li{
-    padding: 14px 16px;
-    margin : 0;
-    border-bottom: 1px solid #bdb8d7;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    border-top: 1px solid rgba(255,255,255,0.05);
-}    
-
+}   
 .wrapper .sidebar  li a{
     color: #bdb8d7;
     display: block;
@@ -146,9 +121,6 @@ footer {
     text-align: center;
     z-index : 1; 
     }
-.left{
-    float : left;
-}
 .bottom{
     margin-bottom:50px;
     margin-left : 650px;
@@ -169,9 +141,75 @@ footer {
     .left {
       float : left;
     }
+    .wrapper .sidebar{
+        width: 200px;
+        height: 100%;
+        background: #4b4276;
+        padding: 30px 0px;
+        position: fixed;
+        overflow : scroll;
+    }
+    
+    .wrapper .sidebar h3{
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top : 0px;
+    }
+    
+    .wrapper .sidebar  li{
+        padding: 14px 16px;
+        margin : 0;
+        border-bottom: 1px solid #bdb8d7;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(255,255,255,0.05);
+    } 
 }
 @media(max-width : 992px){
-    .center{
-        font-size: small;
+    .wrapper .sidebar{
+        width: 17%;
+        height: 100%;
+        background: #4b4276;
+        padding: 15px 0px;
+        position: fixed;
+        overflow : scroll;
+    }
+    .wrapper .sidebar h3{
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top : 0px;
+        font-size : small;
+    }
+    .wrapper .sidebar  li{
+        padding: 15px 2px;
+        margin : 0;
+        border-bottom: 1px solid #bdb8d7;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .wrapper .sidebar li a{
+        text-align : left;
+    }
+    .head1{
+        display : block;
+        color : white;
+        text-align : center;
+        padding : 6px 2px;
+        text-decoration:wavy;
+        border-radius: 5cm;
+        width: 35%;
+        font-size: 20px;
+    }
+    .green-bar{
+        list-style-type: none;
+        margin-left : 250px;
+        padding : 0;
+        background-color : rgba(0,255,0,12);
+    }
+    h3,p,h4,h2{
+        margin-left : 150px;
     }
 }
