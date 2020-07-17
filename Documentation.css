@@ -2,6 +2,7 @@ body{
     background-color : white;
     margin : 0;
     height : 100%;
+    overflow-x : hidden;
 }
 h1{
     text-align: center;
@@ -49,7 +50,7 @@ th{
 }
 .wrapper{
     display : flex;
-    position : relative;
+    position : fixed;
     list-style-type: none;
     top : 45px;
 }   
@@ -120,22 +121,6 @@ footer {
     text-align: center;
     z-index : 1;
 }
-.bottom{
-    margin-bottom:50px;
-    margin-left : 650px;
-}
-.bottom:link, .bottom:visited{
-    text-decoration: none;
-    border-radius: 20px;
-    background-color: green;
-    display : block;
-    color : white;
-    width : 150px;
-    font-size: larger;
-    text-align: center;
-    margin-left : 600px;
-    margin-bottom : 100px;
-}
 @media (min-width:992px){
     .left {
       float : left;
@@ -164,6 +149,22 @@ footer {
         border-bottom: 1px solid rgba(0,0,0,0.05);
         border-top: 1px solid rgba(255,255,255,0.05);
     } 
+    .bottom{
+        margin-bottom:50px;
+        margin-left : 650px;
+    }
+    .bottom:link, .bottom:visited{
+        text-decoration: none;
+        border-radius: 20px;
+        background-color: green;
+        display : block;
+        color : white;
+        width : 150px;
+        font-size: larger;
+        text-align: center;
+        margin-left : 600px;
+        margin-bottom : 100px;
+    }
 }
 @media(max-width : 992px){
     .wrapper .sidebar{
@@ -174,6 +175,7 @@ footer {
         position: fixed;
         overflow-y : scroll;
         overflow-x : hidden;
+        margin-top : 47px;
     }
     .wrapper .sidebar h3{
         color: #fff;
@@ -204,13 +206,16 @@ footer {
         font-size: 20px;
     }
     .green-bar{
+        margin-top : -35px;
         list-style-type: none;
-        margin-left : 250px;
-        margin-right : -250px;
+        margin-left : 150px;
         padding : 0;
         background-color : rgba(0,255,0,12);
     }
     p,h4,h2{
-        margin-left : 150px;
+        margin-left : 140px;
+    }
+    .bottom{
+        margin-bottom:50px;
     }
 }
