@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>OWASP DAMN VULNERABLE</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main1.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+	.container td:first-child { color: #FB667A; 
+		width: auto !important;
+	}
+	.container td{
+		width: auto !important;
+	}
+	.container th{
+		width: auto !important;
+	}
+</style>
+<body>
+    <table class="container" style="width: 100%;">
+        <thead>
+			<tr>
+				<th style="text-align: center; width: 500px !important;">Code</th>
+                <th style="text-align: center;">errno</th>
+                <th style="text-align: center;">sqlState</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<td> <%= p  %> </td>
+                    <td> <%= q  %> </td>
+                    <td> <%= r  %> </td>
+                </tr>
+		</tbody>
+    </table>
+    <table class="container" style="width:95%">
+        <thead>
+			<tr>
+				<th style="text-align: center;">SQL Message</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<td> <%= s  %> </td>
+                </tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
