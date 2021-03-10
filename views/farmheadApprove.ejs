@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h1>Approve Farmwork</h1>
+<table class="container">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hours</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Proof</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= farmwork.id %></td>
+            <td><%= farmwork.hours %></td>
+            <td><%= farmwork.date %></td>
+            <td><%= farmwork.status %></td>
+            <td><%=  farmwork.proof %></td>
+        </tr>
+    </tbody>
+</table>
+
+<h1> Monitored by Nss Volunteer</h1>
+<table class="container">
+    <thead>
+        <th>NSS Volunteer ID</th>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        <td><%= farmwork.nssvolunteerId %></td>
+        <td><%= farmwork.firstname %></td>
+    </tbody>
+</table>
+
+<h1>Present Students</h1>
+<form action="/approvefarmproof" method="POST">
+    <% if(studentList.length != 0) { %> 
+    <table class="container">
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </thead>
+        <tbody>
+            <% for (let student of studentList) { %>
+                <tr>
+                    <td><%= student.id%></td>
+                    <td><%= student.firstname%></td>
+                    <td><%= student.lastname%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% } else { %>
+        <p id = 'no'>No one has participated in the work </p> 
+    <% } %> 
+
+<label id = 'fb' for="feedback">Feedback</label>
+<input type="text" name="feedback" id="feedback"><br>
+<br>
+<input type="radio" id="approve" name="approvalStatus" value="approve">
+<label for="approve">Approve</label><br>
+
+<input type="radio" id="disapprove" name="approvalStatus" value="disapprove">
+<label for="disapprove">Disapprove</label><br>
+
+<br>    
+<input type="hidden" value="<%= farmwork.id %>" name="farmworkId">
+<button id = 'submit' class="btn" type="submit">Submit Approval Status</button>
+<br>
+<form action = '/farmhead' methos = 'get'>
+    <button id = 'submit'>Home</button>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</form>
+</body>
+</html>

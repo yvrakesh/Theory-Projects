@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel = "icon" type = "image/png" href = "nitc.png">
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class='dropdown'>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <!-- <br> -->
+            <table id='container_2'>
+                <% for(attr in people) { %>
+                    <tr>
+                      <td><a><%= attr %></a></td>
+                      <td><a>:</a></td>
+                      <td><a href = '#'><%= people[attr] %></a></td>
+                    </tr>
+                  <% } %> 
+            </table>
+        </div>
+    </div>
+        <button id='dropbtn'>&#9776; Options</button>
+        <div class='dropdown-content'>
+            <div class="topnav" id="myTopnav">
+                <a id='active' onclick="openNav()"> <i class='fa fa-user'></i> Profile</a>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <form action="/student/editProfile" method="get"><button id = 'activea' type = 'submit'><i class='fa fa-edit'></i> Edit Profile</button></form>
+                <!-- <a id='activea' href="EditStudentProfile.html"> <i class='fa fa-edit'></i> Edit Profile</a> -->
+            </div>
+            <div class="topnav" id="myTopnav">
+                <form action="/student/pastActivities" method="get"><button id = 'activeaaaa' type = 'submit'><i class='fa fa-history'></i> Past Activites</button></form>
+                <!-- <a id="activeaaa" href="StudentPastActivities.html" ><i class='fa fa-history'></i> Past Activities</a> -->
+            </div>
+            <div class="topnav" id="myTopnav">
+                <form action = '/student/specialProjectGroup'><button id = 'activeaaa' type = 'submit'><i class='fa fa-send'></i> SP Project</button></form>
+            </div>
+            <div class="topnav">
+                <form action="/logout" method="post"><button id = 'activeaa' type = 'submit'><i class='fa fa-sign-out'></i> Logout</button></form>
+                <!-- <a id="activeaa" href="Login.html" ><i class='fa fa-sign-out'></i> Logout</a> -->
+            </div>
+        </div>
+    </div>
+    <form>
+        <h1 id='heading'>Student Dashboard</h1><br>
+    </form>
+    <div>
+
+<h1>Registered Farm Activities</h1>
+<% if(currentlyRegisteredFarmlist.length != 0) { %> 
+<h1><span class="yellow">Currently Registered Farm Activites</span></h1>
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in currentlyRegisteredFarmlist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < currentlyRegisteredFarmlist.length; i++) { %> 
+            <tr>
+                <% for(attr in currentlyRegisteredFarmlist[i]) { %>
+                    <td><%= currentlyRegisteredFarmlist[i][attr]  %> </td>
+                <% } %>  
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = no>You haven't joined any farm work</p> 
+<% } %> 
+
+<h1>Registered Social Activities</h1>
+<% if(currentlyRegisteredSociallist.length != 0) { %> 
+<h1><span class="yellow">Currently Registered Social Activites</span></h1>
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in currentlyRegisteredSociallist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < currentlyRegisteredSociallist.length; i++) { %> 
+            <tr>
+                <% for(attr in currentlyRegisteredSociallist[i]) { %>
+                    <td><%= currentlyRegisteredSociallist[i][attr]  %> </td>
+                <% } %>  
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>You haven't joined any social work</p>
+<% } %>  
+
+<h1><span class="yellow">Disapproved Farm Activites</span></h1>
+<% if(disapprovedFarmlist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in disapprovedFarmlist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < disapprovedFarmlist.length; i++) { %> 
+            <tr>
+                <% for(attr in disapprovedFarmlist[i]) { %>
+                    <td><%= disapprovedFarmlist[i][attr]  %> </td>
+                <% } %>  
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such activites</p>
+<% } %>  
+
+
+<h1><span class="yellow">Disapproved Social Activites</span></h1>
+<% if(disapprovedSociallist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in disapprovedSociallist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < disapprovedSociallist.length; i++) { %> 
+            <tr>
+                <% for(attr in disapprovedSociallist[i]) { %>
+                    <td><%= disapprovedSociallist[i][attr]  %> </td>
+                <% } %>  
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such activites</p>
+<% } %>  
+
+<h1><span class="yellow">Upcoming Farm Activites</span></h1>
+<% if(unjoinedfarmworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in unjoinedfarmworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < unjoinedfarmworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in unjoinedfarmworklist[i]) { %>
+                    <td><%= unjoinedfarmworklist[i][attr]  %> </td>
+                <% } %>  
+                <td>
+                    <form action="/joinfarmwork" method="POST">
+                        <input type="hidden" value="<%= unjoinedfarmworklist[i]['id'] %>" name="farmworkId">
+                        <button id = 'submit_1' class="btn" type="submit">Join</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such activites</p>
+<% } %> 
+
+<h1><span class="yellow">Upcoming Social Activites</span></h1>
+<% if(unjoinedsocialworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in unjoinedsocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < unjoinedsocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in unjoinedsocialworklist[i]) { %>
+                    <td><%= unjoinedsocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td>
+                    <form action="/joinsocialwork" method="POST">
+                        <input type="hidden" value="<%= unjoinedsocialworklist[i]['id'] %>" name="socialworkId">
+                        <button id = 'submit_1' class="btn" type="submit">Join</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such activites</p>
+<% } %> 
+
+
+<br>
+<br>
+<br>
+<script src='/js/student/student.js'></script>
+</html>

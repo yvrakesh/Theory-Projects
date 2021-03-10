@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Volunteer</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class='dropdown'>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <!-- <br> -->
+                <br><br><br>
+                <table id='container_2'>
+                    <% for(attr in people) { %>
+                        <tr>
+                          <td><a><%= attr %></a></td>
+                          <td><a>:</a></td>
+                          <td><a href = '#'><%= people[attr] %></a></td>
+                        </tr>
+                      <% } %> 
+                </table>
+            </div>
+        </div>
+            <button id='dropbtn'>&#9776; Options</button>
+            <div class='dropdown-content'>
+                <div class="topnav" id="myTopnav">
+                    <a id='active' onclick="openNav()"> <i class='fa fa-user'></i> Profile</a>
+                </div>
+                <div class="topnav" id="myTopnav">
+                    <form action="/socialhead/editProfile" method="get"><button id = 'activea' type = 'submit'><i class='fa fa-edit'></i> Edit Profile</button></form>
+                    <!-- <a id='activea' href="NSSVolunteerEditProfile.html"> <i class='fa fa-edit'></i> Edit Profile</a> -->
+                </div>
+                <!-- <div class="topnav" id="myTopnav">
+                    <form action="/socialhead/pastActivities" method="get"><button id = 'activeaaa' type = 'submit'><i class='fa fa-history'></i>Past Activites</button></form>
+                    <a id="activeaaa" href="NSSVolunteerPastActivities.html" ><i class='fa fa-history'></i> Past Activities</a>
+                </div> -->
+                <div class="topnav" id="myTopnav">
+                    <form action="/socialhead/newsocialtask" method="get"><button id = 'activeaaaa' type = 'submit'><i class='fa fa-send'></i> New Social Task</button></form>
+                    <!-- <a id="activeaaaa" href="" ><i class='fa fa-send'></i>New Social Task</a> -->
+                </div>
+                <div class="topnav">
+                    <form action="/logout" method="post"><button id = 'activeaa' type = 'submit'><i class='fa fa-sign-out'></i> Logout</button></form>
+                    <!-- <a id="activeaa" href="Login.html" ><i class='fa fa-sign-out'></i> Logout</a> -->
+                </div>
+            </div>
+        </div>
+        <form>
+            <h1 id='heading'>Social Work Head Dashboard</h1><br>
+        </form>
+
+<h1><span class="yellow">NSS Volunteer Work History</pan></h1>
+<% if(pastSocialWork.length != 0) { %>
+<table class = "container">
+    
+        <thead>
+            <tr>
+                <% for(attr in pastSocialWork[0].rawAttributes) { %>
+                    <th> <%= attr  %>  </th>
+                <% } %> 
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < pastSocialWork.length; i++) { %> 
+                <tr>
+                    <% for(attr in pastSocialWork[i].rawAttributes) { %>
+                        <td><%= pastSocialWork[i][attr]  %> </td>
+                    <% } %>  
+                </tr>
+            <% } %> 
+        </tbody>
+</table>
+<% } else { %> 
+    <p id = 'no'>No one has approved any work</p>
+<% } %> 
+
+<h1><span class="yellow">Approve Socialworks</span></h1>
+<% if(submitedsocialworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in submitedsocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < submitedsocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in submitedsocialworklist[i]) { %>
+                    <td><%= submitedsocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/approvesocialproof/<%= submitedsocialworklist[i]['id']  %>" class="btn"><button id = 'submit'>Approve Socialwork</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>Currently there are no activites to approve</p> 
+<% } %> 
+
+<script src='/js/farmhead/FarmWorkHead.js'></script>
+</body>

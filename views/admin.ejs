@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel='stylesheet' href='/css/admin/Admin.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class='dropdown'>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <br>
+            <table id='container_2' class = 'admin_table'>
+                <% for(attr in admin) { %>
+                  <tr>
+                    <td><a><%= attr %></a></td>
+                    <td><a>:</a></td>
+                    <td><a href = '#'><%= admin[attr] %></a></td>
+                  </tr>
+                <% } %> 
+            </table>
+        </div>
+    </div>
+        <button id='dropbtn'>&#9776; Options</button>
+        <div class='dropdown-content'>
+            <div class="topnav" id="myTopnav">
+                <a id='active' onclick="openNav()"> <i class='fa fa-user'></i> Profile</a>
+            </div>
+            <div class="topnav" id="myTopnav">
+              <form action="/admin/editProfile" method="get"><button id = 'activea' type = 'submit'><i class='fa fa-edit'></i> Edit Profile</button></form>
+            </div>
+            <div class="topnav">
+              <form action="/logout" method="post"><button id = 'activeaa' type = 'submit'><i class='fa fa-sign-out'></i> Logout</button></form>
+            </div>
+                
+        </div>
+    </div>
+    <form id='content' action="/admin/addperson" method="POST">
+        <h1 id='heading'>Admin Page</h1><br>
+        <table class='container'>
+            <tr>
+              <td><label for = 'people'>Category: </label></td>
+              <td>
+                <select for = 'people' id='people' name="role" onchange='Category(this);'>
+                    <option value=''>Select Category</option>
+                    <option id='op1' value='Student'>Student</option>
+                    <option id='op' value='Faculty'>Faculty</option>
+                    <option id='op' value='Admin'>Admin</option>
+                    <option id='op' value='Farmhead'>Farm Head</option>
+                    <option id='op' value='Socialhead'>Social Head</option>
+                    <option id='op' value='Nssvolunteer'>NSS Volunteer</option>
+                    <option id='op' value='Splvolunteer'>Special Project Volunteer</option>
+                </select>
+              </td>
+            </tr>
+        </table>
+        
+            <table class='container'>
+              <tr>
+                <td><label for="firstname">FirstName</label></td>
+                <td><input type="text" name="firstname" id="ins"></td>
+              </tr>
+              <tr>
+                <td><label for="lastname">LastName</label></td>
+                <td><input type="text" name="lastname" id="ins"></td>
+              </tr>
+              <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" name="password" id="ins"></td>
+              </tr>
+              <tr>
+                <td><label for="department">Department</label></td>
+                <td><select for='department' name="department" id="people">
+                  <option value=''>Select Category</option>
+                    <option id='op1' value='CSED'>Computer Science and Engineering</option>
+                    <option id='op' value='ECED'>Electronics and Communication Engineering</option>
+                    <option id='op' value='EED'>Electrical and Electronics Engineering</option>
+                    <option id='op' value='MED'>Mechanical Engineering</option>
+                    <option id='op' value='CHED'>Chemical Engineering</option>
+                    <option id='op' value='CED'>Civil Engineering</option>
+                    <option id='op' value='PED'>Production Enineering</option>
+                    <option id='op' value='PHY'>Enineering Physics</option>
+                    <option id='op' value='CHE'>Enineering Chemistry</option>
+                    <option id='op' value='MAT'>Enineering Mathematics</option>
+                    <option id='op' value='ARCH'>Architecture and Planning</option>
+                </td>
+              </tr>
+            </table>
+            <button id="submit" class="btn" type="submit">Add Person</button>
+            <br><br>
+    </form>
+</body>
+<script src='/js/admin/home.js'></script>
+</html>

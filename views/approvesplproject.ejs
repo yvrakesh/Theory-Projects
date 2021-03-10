@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Volunteer</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<% if(sample) { %>
+    <h1>Sample Approval</h1>
+    <table class="container">
+        <thead>
+            <th>Group ID</th>
+            <th>Status</th>
+            <th>Project Name</th>
+            <th>Sample Description</th>
+        </thead>
+        <tbody>
+            <td><%= splprojectgrpData.splprojectgrpId%></td>
+            <td><%= splprojectgrpData.status%></td>
+            <td><%= splprojectgrpData.projectname%></td>
+            <td><%= splprojectgrpData.sampledescription%></td>
+        </tbody>
+    </table>
+    
+    <form action="/approvesplprojectgrp?sample=true" method="POST">
+        <table class="container">
+            <td><label for="samplefeedback"> Sample Feedback</label></td>
+            <td><input id = 'ins' type="text" name="samplefeedback" id="samplefeedback"></td>
+        </table>
+        
+        <input type="radio" id="approve" name="approvalStatus" value="approve">
+        <label for="approve">Approve</label><br>
+
+        <input type="radio" id="disapprove" name="approvalStatus" value="disapprove">
+        <label for="disapprove">Disapprove</label><br>
+
+        <input type="hidden" value="<%= splprojectgrpData.splprojectgrpId %>" name="splprojectgrpId">
+        
+        <button id = 'submit' class="btn" type="submit">Submit Sample Approval Status</button>
+</form>
+<%} else {%>
+    <h2>Full Approval</h2>
+    <table class="container">
+        <thead>
+            <th>Group ID</th>
+            <th>Status</th>
+            <th>Project Name</th>
+            <th>Sample Description</th>
+            <th>Sample Feedback</th>
+            <th>Full Description</th>
+        </thead>
+        <tbody>
+            <td><%= splprojectgrpData.splprojectgrpId%></td>
+            <td><%= splprojectgrpData.status%></td>
+            <td><%= splprojectgrpData.projectname%></td>
+            <td><%= splprojectgrpData.sampledescription%></td>
+            <td><%= splprojectgrpData.samplefeedback%></td>
+            <td><%= splprojectgrpData.fulldescription%></td>
+        </tbody>
+    </table>
+    
+    
+    <form action="/approvesplprojectgrp" method="POST">
+        <table class="container">
+            <td><label for="feedback">Full Feedback</label></td>
+            <td><input id = 'ins' type="text" name="feedback" id="feedback"></td>
+        </table>
+        
+        <input type="radio" id="approve" name="approvalStatus" value="approve">
+        <label for="approve">Approve</label><br>
+
+        <input type="radio" id="disapprove" name="approvalStatus" value="disapprove">
+        <label for="disapprove">Disapprove</label><br>
+        <br><br>
+        <input type="hidden" value="<%= splprojectgrpData.splprojectgrpId %>" name="splprojectgrpId">
+        <button id = 'submit' class="btn" type="submit">Submit Full Approval Status</button>
+</form>
+
+<% } %>

@@ -1,0 +1,45 @@
+<h1><% if (editmode) { %>Update Proof<% } else { %>Submit Proof<% } %></h1>
+<%= farmwork.id %>
+<%= farmwork.hours %>
+<%= farmwork.date %>
+<%= farmwork.status %>
+
+<% if(seemode||disapprovemode) { %>
+    <%= farmwork.feedback%>
+<%}%>
+
+<h3>Attendence</h3>
+<h3>Students Registered</h3>
+<%= studentList%>
+<form action="/farmproof" method="POST">
+<% for (let student of studentList) { %>
+    <%= student.id%>
+    <%= student.firstname%>
+    <%= student.lastname%>
+    <%= student.attendence%>
+   <% if (!seemode) { %>
+    <input type="radio" id="<%= student.id %>" name="<%= student.id %>" value="true" >
+    <label for="<%= student.id %>">Present</label><br>
+
+    <input type="radio" id="<%= student.id %>" name="<%= student.id %>" value="false">
+    <label for="<%= student.id %>">Absent</label><br>
+    <% } %>
+<% } %>
+
+    <label for="proof">Proof</label>
+    <% if (seemode) { %>
+        <%= farmwork.proof%>
+    <%} else {%>
+        <% if(editmode){ %>
+            <input type="text" name="proof" id="proof" value="<%= farmwork.proof %>">
+           <%} else {%>
+               <input type="text" name="proof" id="proof">
+           <% } %>
+    <% } %>
+    
+
+    <input type="hidden" value="<%= farmwork.id %>" name="farmworkId">
+    <% if (!seemode){ %>
+    <button class="btn" type="submit"><% if (editmode) { %>Update Proof<% } else { %>Submit Proof<% } %></button>
+    <% } %>
+</form>
