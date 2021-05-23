@@ -1,1 +1,0 @@
-# OWASP-TOP-10-Web-Vulnerabilities
