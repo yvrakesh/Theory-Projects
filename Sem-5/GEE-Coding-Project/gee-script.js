@@ -26,4 +26,3 @@ Export.table.toDrive({
   description: 'NDVI_Mumbai_Suburban',
   fileFormat: 'CSV'
 });
-
