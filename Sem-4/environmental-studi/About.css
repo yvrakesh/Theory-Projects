@@ -1,0 +1,115 @@
+body{
+    background-color : white;
+    margin : 0;
+    height : 100%
+}
+.prev{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    overflow: hidden;
+}
+.whitetext{
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+.whitesmoke_bar{
+    background-color : rgb(245,245,245);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.center{
+    text-align : center;
+}
+.student_bar{
+    background-color : lightblue;
+}
+.box div{
+    display : inline-block;
+    width : 175px;
+    padding : 15px;
+    text-align : center;
+    color : black;
+    border-radius : 25px;
+}
+.icon{
+    display: inline-block;
+    width : 10%;
+    text-align: left;
+    text-decoration: none;
+}
+.grey-bar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color : #333;
+}
+.head{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float : right;
+}
+.head:hover{
+  background-color: black;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color : #333;
+    color : white;
+    text-align: center;
+}
+@media (min-width:992px){
+    .left {
+      float : left;
+    }
+    .green_bar{
+        background-color : green;
+        text-align: center;
+        border-radius : 50px;
+        width : 30%;
+        margin-left : 25%;
+        overflow : hidden;
+        padding : 14px 1px;
+    }
+    .ul1 {
+        list-style-type: none;
+        margin-left : 100px;
+        margin-top : 50px;
+        margin-bottom : 50px;
+        margin-right : 100px;
+        padding: 0;
+        overflow: hidden;
+        background-color : rgb(13,4,226);
+    }
+}
+@media (max-width : 992px){ 
+    .green_bar{
+        background-color : green;
+        border-radius : 50px;
+        width : 100%;
+        overflow : hidden;
+        padding : 12px 2px;
+    }
+    .ul1 {
+        list-style-type: none;
+        padding: 0;
+        overflow: hidden;
+        background-color : rgb(13,4,226);
+    }
+    .student_bar{
+        margin-left : 25%;
+    }
+} 

@@ -1,0 +1,65 @@
+body,html{
+  height: 100%;
+  margin: 0;
+}
+.bg {
+  background-image: url("water3.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  background-color: white;
+}
+.grey-bar{
+  list-style-type: none;
+  margin: 0;
+  left : 0;
+  top : 0;
+  width : 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color : #333;
+  position : fixed;
+}
+.head{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float : right;
+}
+.head:hover,.head1:hover {
+background-color: black;
+}
+footer {
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color : #333;
+  color : white;
+  text-align: center;
+}
+@media (min-width:992px){
+  .left {
+    float : left;
+  }
+  body{
+    background-image: url("water3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height : 100%;
+  }
+}
+@media (max-width : 992px){
+  .bg {
+    background-image: url("water3.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
