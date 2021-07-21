@@ -1,0 +1,31 @@
+//n->Number_of_processes
+5
+
+//m->Number_of_resources
+3
+
+//Alloc_Table
+0 1 0
+2 0 0
+3 0 2
+2 1 1
+0 0 2
+
+//Max_table
+4 5 3
+3 2 2
+9 4 6
+2 3 2
+4 3 3
+
+//Total_table
+10 5 7
+
+//Process_Sequence
+1 3 4 0 2
+
+//Requesting_process
+0
+
+//Request_array
+3 2 2
