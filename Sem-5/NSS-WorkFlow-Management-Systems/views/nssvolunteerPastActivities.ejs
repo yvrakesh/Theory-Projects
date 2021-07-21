@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h1><span class="yellow">Past Farm Activites</span></h1>
+    <% if(approvedfarmworklist.length != 0) { %> 
+    <table class = "container">
+        <thead>
+            <tr>
+                <% for(attr in approvedfarmworklist[0]) { %>
+                    <th> <%= attr  %>  </th>
+                <% } %> 
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < approvedfarmworklist.length; i++) { %> 
+                <tr>
+                    <% for(attr in approvedfarmworklist[i]) { %>
+                        <td><%= approvedfarmworklist[i][attr]  %> </td>
+                    <% } %>  
+                    <td><a href="/givefarmproof/<%= approvedfarmworklist[i]['id'] %>?see=true" class="btn"><button id = 'submit_1'>See Proof</button></a></td>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    <% } else { %>
+        <p id = 'no'>You haven't participated in any farm work</p>
+    <% } %>  
+
+    <h1><span class="yellow">Past Social Activites</span></h1>
+    <% if(approvedsocialworklist.length != 0) { %> 
+    <table class = "container">
+        <thead>
+            <tr>
+                <% for(attr in approvedsocialworklist[0]) { %>
+                    <th> <%= attr  %>  </th>
+                <% } %> 
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < approvedsocialworklist.length; i++) { %> 
+                <tr>
+                    <% for(attr in approvedsocialworklist[i]) { %>
+                        <td><%= approvedsocailworklist[i][attr]  %> </td>
+                    <% } %>  
+                    <td><a href="/givesocialproof/<%= approvedsocialworklist[i]['id'] %>?see=true" class="btn"><button id = 'submit_1'>See Proof</button></a></td>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    <% } else { %>
+        <p id = 'no'>You haven't participated in any social work</p>
+    <% } %>  
+
+    <form action="/nssvolunteer" method="get">
+        <button type="submit" id='submit'>Home</button>
+    </form>
+</body>

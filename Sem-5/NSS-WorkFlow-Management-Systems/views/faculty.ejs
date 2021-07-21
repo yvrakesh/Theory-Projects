@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Volunteer</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class='dropdown'>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <!-- <br> -->
+                <br><br><br>
+                <table id='container_2'>
+                    <% for(attr in people) { %>
+                        <tr>
+                          <td><a><%= attr %></a></td>
+                          <td><a>:</a></td>
+                          <td><a href = '#'><%= people[attr] %></a></td>
+                        </tr>
+                      <% } %> 
+                </table>
+            </div>
+        </div>
+            <button id='dropbtn'>&#9776; Options</button>
+            <div class='dropdown-content'>
+                <div class="topnav" id="myTopnav">
+                    <a id='active' onclick="openNav()"> <i class='fa fa-user'></i> Profile</a>
+                </div>
+                <div class="topnav" id="myTopnav">
+                    <form action="/faculty/editProfile" method="get"><button id = 'activea' type = 'submit'><i class='fa fa-edit'></i> Edit Profile</button></form>
+                </div>
+                <div class="topnav">
+                    <form action="/logout" method="post"><button id = 'activeaa' type = 'submit'><i class='fa fa-sign-out'></i> Logout</button></form>
+                </div>
+            </div>
+        </div>
+        <form>
+            <h1 id='heading'>Faculty Dashboard</h1><br>
+        </form>
+
+        <h2><span class="yellow">Give Grades</span></h2>
+        <% if(takenStudents.length != 0) { %> 
+        <table class = "container">
+            <thead>
+                <tr>
+                    <% for(attr in takenStudents[0]) { %>
+                        <th> <%= attr  %>  </th>
+                    <% } %> 
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < takenStudents.length; i++) { %> 
+                    <tr>
+                        <% for(attr in takenStudents[i]) { %>
+                            <td><%= takenStudents[i][attr]  %> </td>
+                        <% } %>  
+                        <td><a href="/givegrade/<%= takenStudents[i]['ID'] %>" class="btn"><button id = 'submit'>Give Grade</button></a></td>
+                    </tr>
+                <% } %> 
+            </tbody>
+        </table>
+        <% } else { %>
+            <p id = 'no'>No students under you</p>
+        <% } %>  
+
+        <h1><span class="yellow">Available Students</span></h1>
+        <% if(openStudents.length != 0) { %> 
+        <table class = "container">
+            <thead>
+                <tr>
+                    <% for(attr in openStudents[0]) { %>
+                        <th> <%= attr  %>  </th>
+                    <% } %> 
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < openStudents.length; i++) { %> 
+                    <tr>
+                        <% for(attr in openStudents[i]) { %>
+                            <td><%= openStudents[i][attr]  %> </td>
+                        <% } %>  
+                        <td>
+                            <form action="/takestudent" method="POST">
+                                <input type="hidden" value="<%= openStudents[i]['ID'] %>" name="openstudentId">
+                                <button id = 'submit' class="btn" type="submit">Take</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% } %> 
+            </tbody>
+        </table>
+        <% } else { %> 
+            <p id = 'no'>There are no available students</p>
+        <% } %>  
+</body>
+<script src='/js/admin/home.js'></script>
+</html>

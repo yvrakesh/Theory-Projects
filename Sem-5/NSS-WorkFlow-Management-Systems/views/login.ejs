@@ -1,0 +1,47 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href = "/css/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <title>Login</title>
+    </head>
+    <body>
+        <form action="/login" method="POST">
+          <div id = 'content'>
+            <h2 id = 'heading'>NSS Login</h2>
+            <label for = 'people'>Select Category: </label>
+            <select for = 'people' id = 'people' class = 'empty' name="role">
+                <option id = 'op' value = 'Student' >Student</option>
+                <option id = 'op' value = 'Faculty' >Faculty</option>
+                <option id = 'op' value = 'Admin'>Admin</option>
+                <option id = 'op' value = 'Farmhead'>Farm Head</option>
+                <option id = 'op' value = 'Socialhead' >Social Head</option>
+                <option id = 'op' value = 'Nssvolunteer' >NSS Volunteer</option>
+                <option id = 'op' value = 'Splvolunteer'>Special Project Volunteer</option>
+            </select>
+            <br><br>
+
+            <label for="id">ID</label>
+            <!-- <input type="text" name="firstname" id="firstname"> -->
+            <input type='number' id='uname' name='id' class='empty' placeholder='  &#xf007;  Type Your ID'>
+            <br>
+            <br>
+            
+            <label for="password">Password</label>
+            <!-- <input type="password" name="password" id="password"> -->
+            <input type='password' id='password' class='empty' name='password' placeholder="  &#xf023;  Type Your Password">
+            <br>
+            <i class = "fa fa-eye" aria-hidden = "true" id = "togglePassword"></i>
+            <br><br>
+            
+            <button class="btn" id = 'login' type="submit">Login</button>
+            <br>
+            <br>
+            
+            <!-- <a href="http://localhost:3000/html/Login_forgot_password.html">Forgot Password</a> -->
+          </div>
+        </form>
+    </body>
+    <script src = '/js/login.js'></script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h1><% if (editmode) { %>Update Proof<% } else { %>Submit Proof<% } %></h1>
+<table class = 'container'>
+    <thead>
+        <tr>
+            <% for(attr in socialwork) { %>
+                <th><%= attr %> </th>
+            <% } %>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <% for(attr in socialwork) { %>
+                <td><%= socialwork[attr] %> </td>
+            <% } %>  
+        </tr>
+    </tbody>
+</table>
+
+<h3>Attendence</h3>
+<h3>Students Registered</h3>
+<form action="/socialproof" method="POST">
+<% if(studentList.length != 0) { %> 
+<table class = 'container'>
+    <thead>
+        <th>id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Attendance</th>
+    </thead>
+<% for (let student of studentList) { %>
+    <tbody>
+        <td><%= student.id%></td>
+        <td><%= student.firstname%></td>
+        <td><%= student.lastname%></td>
+        <td><%= student.attendence%></td>
+        <% if (!seemode) { %>
+            <td>
+                <select id = 'submit_2' for = 'people' id='<%= student.id %>' name="<%= student.id %>">
+                    <option selected = 'selected' disabled='disabled' class='grey'>Select Category</option>
+                    <option id='op1' class = 'grey' value='true'>Present</option>
+                    <option id='op' class = 'grey' value='false'>Absent</option>
+                </select>
+                <!-- <input type="radio" id="<%= student.id %>" name="<%= student.id %>" value="true" >
+                <label for="<%= student.id %>">Present</label><br>
+            
+                <input type="radio" id="<%= student.id %>" name="<%= student.id %>" value="false">
+                <label for="<%= student.id %>">Absent</label><br>   -->
+            </td>
+        <% } %>
+    </tbody>
+    <!-- <%= student.id%>
+    <%= student.firstname%>
+    <%= student.lastname%>
+    <%= student.attendence%> -->
+   <!-- <% if (!seemode) { %>
+    <input type="radio" id="<%= student.id %>" name="<%= student.id %>" value="true" >
+    <label for="<%= student.id %>">Present</label><br>
+
+    <input type="radio" id="<%= student.id %>" name="<%= student.id %>" value="false">
+    <label for="<%= student.id %>">Absent</label><br>
+    <% } %> -->
+<% } %>
+
+</table>
+<% } else { %>
+    <p id = 'no'>No one has joined the activity</p>
+<% } %> 
+<label id = 'fb' for="proof">Proof</label>
+    <% if (seemode) { %>
+        <%= socialwork.proof%>
+    <%} else {%>
+        <% if(editmode){ %>
+            <input type="text" name="proof" id="proof" value="<%= socialwork.proof %>">
+           <%} else {%>
+               <input type="text" name="proof" id="proof">
+           <% } %>
+    <% } %>
+    
+
+    <input type="hidden" value="<%= socialwork.id %>" name="socialworkId">
+    <br><br>
+    <% if (!seemode){ %>
+    <button id = 'submit' class="btn" type="submit"><% if (editmode) { %>Update Proof<% } else { %>Submit Proof<% } %></button>
+    <% } %>
+</form>
+<br>
+<form action="/nssvolunteer" method = 'get'>
+    <button id = 'submit'>Home</button>
+</form>
+</body>
+</html>

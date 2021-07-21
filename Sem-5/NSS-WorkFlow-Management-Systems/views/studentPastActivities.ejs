@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h1><span class="yellow">Past Farm Activites</span></h1>
+    <% if(approvedFarmlist.length != 0) { %> 
+    <table class = "container">
+        <thead>
+            <tr>
+                <% for(attr in approvedFarmlist[0]) { %>
+                    <th> <%= attr  %>  </th>
+                <% } %> 
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < approvedFarmlist.length; i++) { %> 
+                <tr>
+                    <% for(attr in approvedFarmlist[i]) { %>
+                        <td><%= approvedFarmlist[i][attr]  %> </td>
+                    <% } %>  
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    <% } else { %>
+        <p id = 'no'>You haven't completed any farm work yet</p> 
+    <% } %> 
+
+    <h1><span class="yellow">Past Social Activites</span></h1>
+    <% if(approvedSociallist.length != 0) { %>
+    <table class = "container">
+        <thead>
+            <tr>
+                <% for(attr in approvedSociallist[0]) { %>
+                    <th> <%= attr  %>  </th>
+                <% } %> 
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < approvedSociallist.length; i++) { %> 
+                <tr>
+                    <% for(attr in approvedSociallist[i]) { %>
+                        <td><%= approvedSociallist[i][attr]  %> </td>
+                    <% } %>  
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    <% } else { %>
+        <p id = 'no'>You haven't completed any social work yet</p> 
+    <% } %> 
+
+    <form action="/student" method="get">
+        <button type="submit" id='submit'>Home</button>
+    </form>
+</body>

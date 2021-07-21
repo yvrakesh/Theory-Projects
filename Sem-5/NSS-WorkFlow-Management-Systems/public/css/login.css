@@ -1,0 +1,104 @@
+body{
+    /* background: url(https://img.freepik.com/free-photo/book-library-with-open-textbook_1150-5918.jpg?size=626&ext=jpg&ga=GA1.2.1695340321.1608801239); */
+    background: url(https://cdn.wallpapersafari.com/51/61/dgT2qZ.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top:5%;            
+}
+#content{
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-left: 500px;
+    /* background: url('C:/Users/prana/Desktop/NITC/sem5/dbms/Project/WhatsApp Image 2020-12-23 at 22.11.31.jpeg'); */
+    background-color: white;
+    padding-left: 50px;
+    padding: 50px;
+    font-size: 20px;
+}
+#heading{
+    text-align: center;
+    padding: auto;
+}
+#people{
+    /* font-family: Poppins-Regular;
+font-size: 14px; */
+    border-radius: 5px;
+    width: 400px;
+    height: 40px;
+    /* border: 1px solid black; */
+    /* background-color: white; */
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+}
+#people:hover{
+    background-color: lightblue;
+}
+
+/* #op{
+font-family: Poppins-Regular;
+font-size: 14px;
+} */
+
+#uname{
+    border-radius: 5px;
+    width: 400px;
+    height: 40px;
+    /* border: 1px solid black; */
+}
+#uname:hover{
+    background-color: lightblue;
+}
+#password{
+    border-radius: 5px;
+    width: 400px;
+    height: 40px;
+    /* border: 1px solid black; */
+}
+#password:hover{
+    background-color: lightblue;
+}
+#login{
+    border-radius: 15px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 17px;
+    background: url(https://cdn.wallpapersafari.com/51/61/dgT2qZ.jpg);
+}
+#login:hover{
+    background-color: lightblue;
+}
+i{
+    float: right;
+margin-left: -25px;
+margin-top: -25px;
+position: relative;
+z-index: 2;
+}
+#forpass{
+    float: right;
+}
+
+input.empty {
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+text-decoration: inherit;
+}
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+  }
+  
+  .empty:focus {
+    outline: none;
+  }

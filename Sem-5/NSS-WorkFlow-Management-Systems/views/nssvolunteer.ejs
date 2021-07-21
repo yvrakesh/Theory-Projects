@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Volunteer</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class='dropdown'>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <!-- <br> -->
+            <br><br><br>
+            <table id='container_2'>
+                <% for(attr in people) { %>
+                    <tr>
+                      <td><a><%= attr %></a></td>
+                      <td><a>:</a></td>
+                      <td><a href = '#'><%= people[attr] %></a></td>
+                    </tr>
+                  <% } %> 
+            </table>
+        </div>
+    </div>
+        <button id='dropbtn'>&#9776; Options</button>
+        <div class='dropdown-content'>
+            <div class="topnav" id="myTopnav">
+                <a id='active' onclick="openNav()"> <i class='fa fa-user'></i> Profile</a>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <form action="/nssvolunteer/editProfile" method="get"><button id = 'activea' type = 'submit'><i class='fa fa-edit'></i> Edit Profile</button></form>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <form action="/nssvolunteer/pastActivities" method="get"><button id = 'activeaaa' type = 'submit'><i class='fa fa-history'></i> Past Activites</button></form>
+            </div>
+            <!-- <div class="topnav" id="myTopnav">
+                <a id="activeaaaa" href="Attendance.html" ><i class='fa fa-send'></i> ATTENDANCE</a>
+            </div> -->
+            <div class="topnav">
+                <form action="/logout" method="post"><button id = 'activeaa' type = 'submit'><i class='fa fa-sign-out'></i> Logout</button></form>
+            </div>
+        </div>
+    </div>
+    <form>
+        <h1 id='heading'>NSS Volunteer Dashboard</h1><br>
+    </form>
+</body>
+
+<h1><span class="yellow">Upcoming Farm Works</span></h1>
+<% if(openfarmworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in openfarmworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < openfarmworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in openfarmworklist[i]) { %>
+                    <td><%= openfarmworklist[i][attr]  %> </td>
+                <% } %>  
+                <td>
+                    <form action="/takefarmwork" method="POST">
+                        <input type="hidden" value="<%= openfarmworklist[i]['id'] %>" name="openfarmworkId">
+                        <button id = 'submit' class="btn" type="submit">Join</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %> 
+    <p id = 'no'>No upcoming activites</p>
+<% } %> 
+
+<h1><span class="yellow">Upcoming Social Works</span></h1>
+<% if(opensocialworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in opensocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < opensocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in opensocialworklist[i]) { %>
+                    <td><%= opensocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td>
+                    <form action="/takesocialwork" method="POST">
+                        <input type="hidden" value="<%= opensocialworklist[i]['id'] %>" name="opensocialworkId">
+                        <button id = 'submit' class="btn" type="submit">Join</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %> 
+    <p id = 'no'>No upcoming activites</p> 
+<% } %> 
+
+<h1><span class="yellow">Taken Farm Works</span></h1>
+
+<h2><span class="yellow">Status: Allocated</span></h2>
+<% if(allocatedfarmworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in allocatedfarmworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < allocatedfarmworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in allocatedfarmworklist[i]) { %>
+                    <td><%= allocatedfarmworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givefarmproof/<%= allocatedfarmworklist[i]['id']  %>" class="btn"><button id = 'submit'>Give Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %> 
+    <p id = 'no'>No such Activities</p>
+<% } %> 
+
+<h2><span class="yellow">Status: Submitted for Approval</span></h2>
+<% if(submitedfarmworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in submitedfarmworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < submitedfarmworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in submitedfarmworklist[i]) { %>
+                    <td><%= submitedfarmworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givefarmproof/<%= submitedfarmworklist[i]['id']  %>?edit=true" class="btn"><button id = 'submit'>Update Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activities</p> 
+<% } %> 
+
+<h2><span class="yellow">Status: Approved</span></h2>
+<% if(approvedfarmworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in approvedfarmworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < approvedfarmworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in approvedfarmworklist[i]) { %>
+                    <td><%= approvedfarmworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givefarmproof/<%= approvedfarmworklist[i]['id'] %>?see=true" class="btn"><button id = 'submit'>See Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activites</p>
+<% } %>  
+
+<h2><span class="yellow">Status: Disapproved</span></h2>
+<% if(disapprovedfarmworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in disapprovedfarmworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < disapprovedfarmworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in disapprovedfarmworklist[i]) { %>
+                    <td><%= disapprovedfarmworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givefarmproof/<%= disapprovedfarmworklist[i]['id'] %>?edit=true&disapprove=true" class="btn"><button id = 'submit'>Change Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activites</p> 
+<% } %> 
+
+<h1><span class="yellow">Taken Social Works</span></h1>
+<% if(allocatedsocialworklist.length != 0) { %> 
+<h2><span class="yellow">Status: Allocated</span></h2>
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in allocatedsocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < allocatedsocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in allocatedsocialworklist[i]) { %>
+                    <td><%= allocatedsocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givesocialproof/<%= allocatedsocialworklist[i]['id']  %>" class="btn"><button id = 'submit'>Give Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activites</p> 
+<% } %> 
+
+<h2><span class="yellow">Status: Submitted for Approval</span></h2>
+<% if(submitedsocialworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in submitedsocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < submitedsocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in submitedsocialworklist[i]) { %>
+                    <td><%= submitedsocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givesocialproof/<%= submitedsocialworklist[i]['id']  %>?edit=true" class="btn"><button id = 'submit'>Update Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activites</p> 
+<% } %> 
+
+<h2><span class="yellow">Status: Approved</span></h2>
+<% if(approvedsocialworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in approvedsocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < approvedsocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in approvedsocialworklist[i]) { %>
+                    <td><%= approvedsocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givesocialproof/<%= approvedsocialworklist[i]['id'] %>?see=true" class="btn"><button id = 'submit'>See Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activites</p> 
+<% } %> 
+
+<h2><span class="yellow">Status: Disapproved</span></h2>
+<% if(disapprovedsocialworklist.length != 0) { %> 
+<table class = "container">
+    <thead>
+        <tr>
+            <% for(attr in disapprovedsocialworklist[0]) { %>
+                <th> <%= attr  %>  </th>
+            <% } %> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < disapprovedsocialworklist.length; i++) { %> 
+            <tr>
+                <% for(attr in disapprovedsocialworklist[i]) { %>
+                    <td><%= disapprovedsocialworklist[i][attr]  %> </td>
+                <% } %>  
+                <td><a href="/givesocialproof/<%= disapprovedsocialworklist[i]['id'] %>?edit=true&disapprove=true" class="btn"><button id = 'submit'>Change Proof</button></a></td>
+            </tr>
+        <% } %> 
+    </tbody>
+</table>
+<% } else { %>
+    <p id = 'no'>No such Activites</p> 
+<% } %> 
+<script src='/js/nssvolunteer/NSSVolunteer.js'></script>
+</html>

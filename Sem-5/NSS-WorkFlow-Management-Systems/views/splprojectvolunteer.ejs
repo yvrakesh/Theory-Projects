@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Volunteer</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class='dropdown'>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <br>
+                <table id='container_2'>
+                    <% for(attr in people) { %>
+                        <tr>
+                          <td><a><%= attr %></a></td>
+                          <td><a>:</a></td>
+                          <td><a href = '#'><%= people[attr] %></a></td>
+                        </tr>
+                      <% } %> 
+                </table>
+            </div>
+        </div>
+            <button id='dropbtn'>&#9776; Options</button>
+            <div class='dropdown-content'>
+                <div class="topnav" id="myTopnav">
+                    <a id='active' onclick="openNav()"> <i class='fa fa-user'></i> Profile</a>
+                </div>
+                <div class="topnav" id="myTopnav">
+                  <form action="/splprojectvolunteer/editProfile" method="get"><button id = 'activea' type = 'submit'><i class='fa fa-edit'></i> Edit Profile</button></form>
+                </div>
+                <div class="topnav">
+                  <form action="/logout" method="post"><button id = 'activeaa' type = 'submit'><i class='fa fa-sign-out'></i> Logout</button></form>
+                </div>
+                    
+            </div>
+        </div>
+<h1 id = 'heading'>Spl Project Volunteer Dashboard </h1>
+
+
+<h2>Available groups</h2>
+<% if(opensplprojectgrpslist.length != 0) { %>
+<table class="container">
+    <thead>
+        <th>Group ID</th>
+        <th>Project Name</th>
+    </thead>
+    <tbody>
+        <% for (let splprojectgrp of opensplprojectgrpslist) { %>
+            <tr>
+                <td><%= splprojectgrp.splprojectgrpId %></td>
+                <td><%= splprojectgrp.projectname %></td>
+                <td>
+                    <form action="/takesplprojectgrp" method="POST">
+                        <input type="hidden" value="<%= splprojectgrp.splprojectgrpId %>" name="splprojectgrpId">
+                        <button id = 'submit_1' class="btn" type="submit">Take</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+<% } else { %> 
+    <p id = 'no'>No Available Groups</p>
+<% } %> 
+
+<h2>Approve Sample Submissions</h2>
+<% if(takensamplegrpslist.length != 0) { %> 
+<table class="container">
+    <thead>
+        <th>Group ID</th>
+        <th>Project Name</th>
+    </thead>
+    <tbody>
+        <% for (let splprojectgrp of takensamplegrpslist) { %>
+            <tr>
+                <td><%= splprojectgrp.splprojectgrpId %></td>
+                <td><%= splprojectgrp.projectname %></td>
+                <td><a href="/approvesplprojectgrp/<%= splprojectgrp.splprojectgrpId %>?sample=true" class="btn"><button id = 'submit_1'>Approve Sample</button> </a></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+<% } else { %> 
+    <p id = 'no'>No Sample Submissions</p>
+<% } %> 
+
+
+<h2>Approve Final Submissions</h2>
+<% if(takenfullgrpslist.length != 0) { %> 
+<table class="container">
+    <thead>
+        <th>Group ID</th>
+        <th>Project Name</th>
+    </thead>
+    <tbody>
+        <% for (let splprojectgrp of takenfullgrpslist) { %>
+            <tr>
+                <td><%= splprojectgrp.splprojectgrpId %></td>
+                <td><%= splprojectgrp.projectname %></td>
+                <td><a href="/approvesplprojectgrp/<%= splprojectgrp.splprojectgrpId %>" class="btn"><button id = 'submit_1'>Approve</button></a></td>
+            </tr> 
+        <% } %>
+    </tbody>
+
+</table>
+<% } else { %> 
+    <p id = 'no'>No Submission</p>
+<% } %> 
+</body>
+<script src='/js/admin/home.js'></script>
+</html>

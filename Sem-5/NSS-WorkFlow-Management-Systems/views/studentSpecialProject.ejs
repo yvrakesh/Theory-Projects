@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student</title>
+        <link rel = "icon" type = "image/png" href = "nitc.png">
+        <link rel='stylesheet' href='/css/student/student.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body>
+<h1>Spl Project Group</h1>
+<% if(!hasSplGrp) { %>
+    <a href="/createsplgrp %>" class="btn"><button id = 'submit_1'>Create New Grp</button></a>
+<% } else { %>
+    <table class = 'container'>
+        <tbody>
+            <tr>
+                <td>Special Project ID</td>
+                <td><%= splprojectgrpData.splgrpId %></td>
+            </tr>
+            <tr>
+                <td>Project Name</td>
+                <td><%= splprojectgrpData.projectname %></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><%= splprojectgrpData.status %></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <table class = 'container'>
+        <thead>
+            <th>Student ID</th>
+            <th>First Name</th>
+        </thead>
+        <tbody>
+            <% for (let member of  splgrpmemberlist) { %>
+                <tr>
+                    <td><%= member.studentId %></td>
+                    <td><%= member.firstname %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    
+    <!-- <h2>Status of spl project</h2> -->
+    <% if(createdStatus) { %>
+        <!-- <h2> createdStatus </h2> -->
+        <a href="/createsplgrp?createdStatus=true" class="btn"><button id = submit>Give Sample Proof</button></a>
+    <% } %>
+    <% if(submittedSampleStatus) { %>
+        <h2>submittedSampleStatus</h2>
+        <a href="/createsplgrp?submittedSampleStatus=true" class="btn"><button id = 'submit'>Update Sample Proof</button></a>
+    <% } %>
+    <% if(sampleRejected) { %>
+        <h2> sampleRejected </h2>
+        <a href="/createsplgrp?sampleRejected=true" class="btn"><button id = 'submit'>Update Sample Proof</button></a>
+    <% } %>
+    <% if(sampleAccepted) { %>
+        <h2> sampleAccepted </h2>
+        <a href="/createsplgrp?sampleAccepted=true" class="btn"><button id = 'submit'>Give final proof</button></a>
+    <% } %>
+    <% if(submittedFullStatus) { %>
+        <h2>submittedFullStatus</h2> 
+        <a href="/createsplgrp?submittedFullStatus=true" class="btn"><button id = 'submit'>Update Final Proof</button></a>
+    <% } %>
+    <% if(fullRejected) { %>
+        <h2>fullRejected</h2>
+        <a href="/createsplgrp?fullRejected=true" class="btn"><button id = 'submit'>Update Final Proof</button></a>
+    <% } %>
+    <% if(approved) { %>
+        <h2>approved</h2> 
+        <a href="/createsplgrp?approved=true" class="btn"><button id = 'submit'>See Final Proof</button></a>
+    <% } %>
+<% } %>
+<script src='/js/student/student.js'></script>
+</body>
+</html>

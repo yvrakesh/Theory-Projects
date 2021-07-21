@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/admin/editProfile.css'>
+    <title>Edit Admin Profile</title>
+</head>
+<body>
+    <h1>
+        <span class="yellow">Edit Profile</span>
+    </h1>
+    <div id = 'content'>
+        <form action="/faculty/editprofile" method="post">
+            <table class='container'> 
+                <% for (attr in faculty) { %> 
+                    <tr>
+                        <td>
+                            <label><%= attr %></label>
+                        </td>
+                        <td>
+                            <input type = 'text' id='ins' id = <%= attr %> name = '<%= attr %>'  value='<%= faculty[attr]%>' onfocus="this.placeholder=''" onblur="this.placeholder='<%= attr %>'">
+                        </td>
+                    </tr>
+                <% } %> 
+                <tr>
+                    <td>
+                        <label>Old Password</label>
+                    </td>
+                    <td>
+                        <input type='password' id='ins' name='oldPassword' placeholder="Old Password" onfocus="this.placeholder=''" onblur="this.placeholder='New Password'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>New Password</label>
+                    </td>
+                    <td>
+                        <input type='password' id='ins' name='newPassword' placeholder="New Password" onfocus="this.placeholder=''" onblur="this.placeholder='New Password'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Confirm New Password</label><br>
+                    </td>
+                    <td>
+                        <input type='password' id='ins' name='confirmNewPassword' placeholder="Confirm New Password" onfocus="this.placeholder=''" onblur="this.placeholder='Confirm New Password'">
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" id='submit'>Update</button>
+        </form><br>
+        
+        <form action="/logout" method="post">
+            <!-- <input id="submit" type="submit" name='update' value="update"> -->
+            <button type="submit" id='submit'>Logout</button>
+        </form><br>
+        <form action="/faculty" method="get">
+            <button type="submit" id='submit'>Home</button>
+        </form>
+        
+        <!-- <a href='Admin.html'><input id="submit" type="submit" name='update' onclick='openAlert()' value="update"></a> -->
+        <br><br>
+    </div>
+</body>
+<script src='/js/admin/editProfile.js'></script>
+</html>

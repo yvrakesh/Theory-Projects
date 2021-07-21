@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- <link rel = "icon" type = "image/png" href = "nitc.png"> -->
+    <link rel='stylesheet' href='/css/student/student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<h1>Student</h1>
+<table class = 'container'>
+    <thead>
+        <tr>
+            <% for(attr in student) { %>
+                <th><%= attr %></th>
+            <% } %>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <% for(attr in student) { %>
+                <td><%= student[attr] %></td>
+            <% } %>  
+        </tr>
+    </tbody>
+</table>
+<form action="/givegrade/<%= student['ID'] %>" method='post'>
+    <select id = 'submit_3'  class = 'empty' name="grade">
+        <option id = 'op' value = 'Pass' >Pass</option>
+        <option id = 'op' value = 'Fail' >Fail</option>
+    </select>
+    <br><br>
+    <button id = 'submit'>submit</button>
+</form>
+<br>
+<form action = '/faculty' method = 'get'>
+    <button id = 'submit'>Home</button>
+</form>
+    
+</body>
+</html>
