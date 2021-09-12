@@ -16,3 +16,4 @@ Semester Wise Theory Projects
 |10|Sem 6|Computer Security|[OWASP TOP 10 Web Vulnerabilities Analysis and Prevention](https://github.com/yvrakesh/Theory-Projects/tree/main/Sem-6/OWASP-Top10-Web-Vulnerabilities)
 |11|Sem 6|Computer Security|[DDoS Attack Using BotNets](https://github.com/yvrakesh/Theory-Projects/tree/main/Sem-6/DDoS-Attack-Using-Botnets)
 |12|Sem 6|Software Engineering|[Skilled Labour Support](https://github.com/yvrakesh/Theory-Projects/tree/main/Sem-6/Skilled-Labour-Support)
+|12|Sem 7|Web Programming|[Web Coursera](https://github.com/yvrakesh/Theory-Projects/tree/main/Sem-7/WebCoursera)

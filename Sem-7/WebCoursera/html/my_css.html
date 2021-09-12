@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>CSS</title>
+        <link rel = "stylesheet" href = "../css/course.css">
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+        <link rel="icon" type="image/png" href="../images/nitc.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous"/>
+        <script src = "../js/css.js"></script>
+    </head>
+
+    <body onload = "re_render()">
+        <!-- Navigation Bar-->
+        <nav class="navbar">
+            <div class="navbar__container">
+            <a href="../home.html" id="navbar__logo">WebCoursera</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <div class=" navbar__links search_wrap search_wrap_3">
+                        <div class="search_box">
+                        <input type="text" class="input" placeholder="Type to Search">
+                        <div class="btn btn_common">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="navbar__item"><a href="../home.html" class="navbar__links" id="home-page">Home</a></li>
+                <li class="navbar__item"><a href="categories.html" class="navbar__links" id="about-page">Categories</a></li>
+                <li class="navbar__btn"><a href="login.html" class="button" id="login">Login</a></li>
+                <li class="navbar__btn"><a href="register.html" class="button button1" id="register">Register</a></li>
+            </ul>
+            </div>
+        </nav>
+        <br>
+        <div class = "heading">
+            <h1 class = "main-head">CSS Content</h1>
+        </div>
+            
+        <h1 style = "margin-left: 2.5vw;">Reference Books</h1>
+
+        <div class="reference" id="reference">
+            <div class="reference__wrapper">
+                <div class="reference__card">
+                    <a href = "https://wtf.tw/ref/duckett.pdf"><img src = "https://chaudharyacademy.com/wp-content/uploads/2019/08/HTML_and_CSS_Design_and_Build-website_Jon_Duckett-scaled.jpg" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://wtf.tw/ref/duckett.pdf"><h2>HTML and CSS</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.geeksforgeeks.org/css-tutorials/"><img src = "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210203171024/CSSTutorial.png" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "http://www.geeksforgeeks.org/css-tutorials/"><h2>Geeks For Geeks</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.w3schools.com/w3css/defaulT.asp"><img src = "https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-css/sta-je-css.png" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.w3schools.com/w3css/defaulT.asp"><h2>W3Schools</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.tutorialspoint.com/css/index.htm"><img src = "https://miro.medium.com/max/1400/0*0Jt6AoXxmN0n0qhN" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.tutorialspoint.com/css/index.htm"><h2>Tutorialspoint</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.csstutorial.net/"><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvA00GaUwlwEKhXxDgarATH7yRlRh3utSexQ&usqp=CAU" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.csstutorial.net/"><h2>CSS Tutorial</h2></a>
+                </div>
+            </div>
+        </div>
+
+        <h1 style="margin-left: 2.5vw;">Video Lectures</h1>
+
+        <div class = "main-div">
+            <div class = "table-div">
+                <table id = "cat-table" cellspacing = "30px"></table>
+            </div>
+
+            <div class = "category-div">
+                <select onchange = "re_render()" name = "category" id = "category">
+                    <option value = "all" selected>All</option>
+                    <option value = "short">Short</option>
+                    <option value = "medium">Medium</option>
+                    <option value = "long">Long</option>
+                </select>
+            </div>  
+        </div>
+        <!-- Footer Section -->
+    <div class="footer__container">
+      <div class="footer__links">
+        <div class="footer__link--wrapper">
+          <div class="footer__link--items">
+            <a href="terms.html">Terms</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="support.html">Help and Support</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="about.html">About Us</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <section class="social__media">
+        <div class="social__media--wrap">
+          <div class="footer__logo">
+            <a href="/" id="footer__logo">WebCoursera</a>
+          </div>
+          <p class="website__rights">© WebCoursera 2021. All rights reserved</p>
+          <div class="social__icons">
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="../js/app.js"></script>
+    </body>
+</html>

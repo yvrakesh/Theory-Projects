@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Java</title>
+        <link rel = "stylesheet" href = "../css/course.css">
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+        <link rel="icon" type="image/png" href="../images/nitc.png"/>
+        <script src = "../js/java.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous"/>
+    </head>
+    
+    <body onload = "re_render()">
+        <nav class="navbar">
+            <div class="navbar__container">
+            <a href="../home.html" id="navbar__logo">WebCoursera</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <div class=" navbar__links search_wrap search_wrap_3">
+                        <div class="search_box">
+                        <input type="text" class="input" placeholder="Type to Search">
+                        <div class="btn btn_common">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="navbar__item"><a href="../home.html" class="navbar__links" id="home-page">Home</a></li>
+                <li class="navbar__item"><a href="categories.html" class="navbar__links" id="about-page">Categories</a></li>
+                <li class="navbar__btn"><a href="login.html" class="button" id="login">Login</a></li>
+                <li class="navbar__btn"><a href="register.html" class="button button1" id="register">Register</a></li>
+            </ul>
+            </div>
+        </nav>
+        <br>
+        <div class = "heading">
+            <h1 class = "main-head">Java Content</h1>
+        </div>
+            
+        <h1 style = "margin-left: 2.5vw;">Reference Books</h1>
+
+        <div class="reference" id="reference">
+            <div class="reference__wrapper">
+                <div class="reference__card">
+                    <a href = "https://www.programiz.com/java-programming"><img src = "https://www.oracle.com/a/tech/img/cb88-java-logo-001.jpg" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.programiz.com/java-programming"><h2>Programmiz</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.geeksforgeeks.org/java/"><img src = "https://cdn.vox-cdn.com/thumbor/_AobZZDt_RVStktVR7mUZpBkovc=/0x0:640x427/1200x800/filters:focal(0x0:640x427)/cdn.vox-cdn.com/assets/1087137/java_logo_640.jpg" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.geeksforgeeks.org/java/"><h2>Geeks For Geeks</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.javatpoint.com/java-tutorial"><img src = "../images/java.png" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.javatpoint.com/java-tutorial"><h2>Javapoint</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.w3schools.com/java/"><img src = "https://gteconlinelearning.com/wp-content/uploads/2020/05/java-5.jpg" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.w3schools.com/java/"><h2>W3Schools</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://www.tutorialspoint.com/java/index.htm"><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEupcbar7kGCemrHww63ksXu9geCpyEwNVDg&usqp=CAU" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://www.tutorialspoint.com/java/index.htm"><h2>Tutorialspoint</h2></a>
+                </div>
+                <div class="reference__card">
+                    <a href = "https://kea.nu/files/textbooks/new/Effective%20Java%20%282017%2C%20Addison-Wesley%29.pdf"><img src = "https://m.media-amazon.com/images/I/51wl8cINKYL.jpg" height="250px" width="275px" alt = "" srcset = ""></a>
+                    <a href = "https://kea.nu/files/textbooks/new/Effective%20Java%20%282017%2C%20Addison-Wesley%29.pdf"><h2>Effective Java</h2></a>
+                </div>
+              </div>
+        </div>
+
+        <h1 style="margin-left: 2.5vw;">Video Lectures</h1>
+
+        <div class = "main-div">
+            <div class = "table-div">
+                <table id = "cat-table" cellspacing = "30px"></table>
+            </div>
+            
+            <div class = "category-div">
+                <select onchange = "re_render()" name = "category" id = "category">
+                    <option value = "all" selected>All</option>
+                    <option value = "short">Short</option>
+                    <option value = "medium">Medium</option>
+                    <option value = "long">Long</option>
+                </select>
+            </div>  
+        </div>
+        <!-- Footer Section -->
+    <div class="footer__container">
+      <div class="footer__links">
+        <div class="footer__link--wrapper">
+          <div class="footer__link--items">
+            <a href="terms.html">Terms</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="support.html">Help and Support</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="about.html">About Us</a>
+          </div>
+          <div class="footer__link--items">
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <section class="social__media">
+        <div class="social__media--wrap">
+          <div class="footer__logo">
+            <a href="/" id="footer__logo">WebCoursera</a>
+          </div>
+          <p class="website__rights">© WebCoursera 2021. All rights reserved</p>
+          <div class="social__icons">
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="../js/app.js"></script>
+    </body>
+</html>
