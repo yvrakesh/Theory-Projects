@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>XSS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='xss.js' defer></script>
+</head>
+<body>
+    <h1>XSS</h1>
+    <h2><%= userName %></h2>
+    <form action="/xss" method="POST">
+    <input style="width:700px;" type="text" id="userMessage" name="userMessage"/>
+    <button type="submit">Add Item</button>
+    </form>
+
+    <ul> 
+        <% for (let post of posts){ %>
+            <li><%- post %></li>
+        <% } %>
+    </ul>
+    <!----
+    <button onclick="myFunction()">Try it</button>
+    <button onclick="setCookie()">Make Cookie</button>
+
+<p id="demo"></p>
+
+   
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+    <script>
+        function setCookie() {
+            document.cookie = "username=John Doe"; 
+        }
+        function myFunction() {
+          var x = document.cookie;
+          document.getElementById("demo").innerHTML = "Cookies associated with this document: " + x;
+        }
+        </script>
+    -->
+        
+</body>
+</html>

